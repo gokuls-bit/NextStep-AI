@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f0e1;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        p {
+            margin-top: 15px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .form-container.inactive {
+            display: none;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form" class="form-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+            <p class="error-message" id="login-error"></p>
+        </form>
+        <p>Don't have an account? <a id="show-signup">Sign up</a></p>
+    </div>
+
+    <div id="signup-form" class="form-container inactive">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="signup-name">Name:</label>
+            <input type="text" id="signup-name" name="name" placeholder="Enter your name" required>
+
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+
+            <button type="submit">Sign Up</button>
+            <p class="error-message" id="signup-error"></p>
+        </form>
+        <p>Already have an account? <a id="show-login">Login</a></p>
+    </div>
+
+    <script>
+        document.getElementById('show-signup').addEventListener('click', function() {
+            document.getElementById('login-form').classList.add('inactive');
+            document.getElementById('signup-form').classList.remove('inactive');
+        });
+
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('signup-form').classList.add('inactive');
+            document.getElementById('login-form').classList.remove('inactive');
+        });
+
+        // Handle Login
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+            const errorElement = document.getElementById("login-error");
+            errorElement.textContent = "";
+
+            try {
+                const response = await fetch("http://localhost:6789/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    localStorage.setItem("token", result.token);
+                    alert("Login successful!");
+                    window.location.href = "form.html";
+                } else {
+                    errorElement.textContent = result.message;
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                errorElement.textContent = "Something went wrong. Please try again.";
+            }
+        });
+
+        // Handle Signup
+        document.getElementById('signupForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("signup-name").value;
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+            const errorElement = document.getElementById("signup-error");
+            errorElement.textContent = "";
+
+            try {
+                const response = await fetch("http://localhost:6789/signup", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert("Signup successful! Please login.");
+                    document.getElementById('signup-form').classList.add('inactive');
+                    document.getElementById('login-form').classList.remove('inactive');
+                } else {
+                    errorElement.textContent = result.message;
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                errorElement.textContent = "Something went wrong. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>

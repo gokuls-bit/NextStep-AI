@@ -1,0 +1,138 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #004080;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.dashboard button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Dashboard Menu */
+.dashboard-menu {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 200px;
+    display: none;
+    z-index: 100;
+}
+
+.dashboard-menu ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.dashboard-menu ul li {
+    margin: 10px 0;
+}
+
+.dashboard-menu ul li a {
+    text-decoration: none;
+    color: #004080;
+    font-size: 1rem;
+    padding: 10px;
+    display: block;
+}
+
+.dashboard-menu ul li a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Main Content Section with Image */
+main {
+    height: 80vh;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Landing Page Image */
+.landing-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+main h1 {
+    font-size: 3rem;
+    color: #004080;
+    margin-bottom: 10px;
+}
+
+main p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+main button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #004080;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+main button:hover {
+    background-color: #0066cc;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+footer nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+footer nav ul li a:hover {
+    text-decoration: underline;
+}

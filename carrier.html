@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Recommendation</title>
+  <style>
+    body {
+      background-color: #d0f0c0; /* Pearl green */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .container {
+      background-color:rgba(210, 251, 229, 0.72);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #2e8b57;
+      margin-bottom: 30px;
+    }
+
+    #careerText {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background-color:rgb(75, 165, 114);
+      color: rgb(202, 225, 231);
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #246c47;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Career Recommendation</h1>
+    <p id="careerText">Loading recommendation...</p>
+    <a href="thankyou.html" class="btn">Go Ahead</a>
+  </div>
+
+  <script>
+    const result = localStorage.getItem("careerResult");
+
+    if (result) {
+      document.getElementById("careerText").innerText = result;
+    } else {
+      document.getElementById("careerText").innerText = "❌ No recommendation found. Please go back and try again.";
+    }
+  </script>
+  <!-- Add this inside the <body>, after the closing </div> of .container -->
+<h2 style="font-size: 23px; margin-top: 40px; color: #2e8b57;">Made by SANT</h2>
+
+</body>
+</html>
+
