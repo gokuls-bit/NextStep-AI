@@ -6,111 +6,116 @@
     <title>Career Assessment</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container {
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            color: black;
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            color: #222;
         }
         h2 {
             text-align: center;
-            color: #003366;
+            color: #333;
         }
         p {
             text-align: center;
-            font-size: 14px;
-            color: #333;
+            font-size: 15px;
+            color: #444;
         }
         .question {
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 18px;
         }
         .options {
-            margin-left: 10px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
         }
         input[type="radio"] {
-            margin-right: 8px;
+            margin-right: 6px;
         }
         button {
             display: block;
             width: 100%;
             padding: 12px;
-            margin-top: 20px;
-            background: #28a745;
+            margin-top: 25px;
+            background-color: #28a745;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
         }
         button:hover {
-            background: #218838;
+            background-color: #218838;
         }
         .logout-btn {
-            background: red;
-            margin-top: 10px;
+            background-color: #dc3545;
         }
         .logout-btn:hover {
-            background: darkred;
+            background-color: #c82333;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Career Assessment</h2>
-        <p>Answer the following questions honestly to get the best career recommendation.</p>
+        <p>Answer the following questions honestly to get your best career recommendation.</p>
 
         <form id="career-form">
             <div class="question">1. What type of tasks do you enjoy the most?</div>
             <div class="options">
-                <input type="radio" name="task" value="Solving technical problems" required> Solving technical problems<br>
-                <input type="radio" name="task" value="Managing and planning"> Managing and planning<br>
-                <input type="radio" name="task" value="Designing and creating"> Designing and creating<br>
-                <input type="radio" name="task" value="Researching and analyzing"> Researching and analyzing<br>
+                <label><input type="radio" name="task" value="Solving technical problems" required> Solving technical problems</label>
+                <label><input type="radio" name="task" value="Managing and planning"> Managing and planning</label>
+                <label><input type="radio" name="task" value="Designing and creating"> Designing and creating</label>
+                <label><input type="radio" name="task" value="Researching and analyzing"> Researching and analyzing</label>
             </div>
 
             <div class="question">2. How do you prefer to work?</div>
             <div class="options">
-                <input type="radio" name="work" value="With computers and data" required> With computers and data<br>
-                <input type="radio" name="work" value="With people and leadership"> With people and leadership<br>
-                <input type="radio" name="work" value="With artistic projects"> With artistic projects<br>
-                <input type="radio" name="work" value="Conducting experiments and research"> Conducting experiments and research<br>
+                <label><input type="radio" name="work" value="With computers and data" required> With computers and data</label>
+                <label><input type="radio" name="work" value="With people and leadership"> With people and leadership</label>
+                <label><input type="radio" name="work" value="With artistic projects"> With artistic projects</label>
+                <label><input type="radio" name="work" value="Conducting experiments and research"> Conducting experiments and research</label>
             </div>
 
             <div class="question">3. Which of these subjects interests you the most?</div>
             <div class="options">
-                <input type="radio" name="subject" value="Mathematics and coding" required> Mathematics and coding<br>
-                <input type="radio" name="subject" value="Economics and marketing"> Economics and marketing<br>
-                <input type="radio" name="subject" value="Art and literature"> Art and literature<br>
-                <input type="radio" name="subject" value="Biology and medical sciences"> Biology and medical sciences<br>
+                <label><input type="radio" name="subject" value="Mathematics and coding" required> Mathematics and coding</label>
+                <label><input type="radio" name="subject" value="Economics and marketing"> Economics and marketing</label>
+                <label><input type="radio" name="subject" value="Art and literature"> Art and literature</label>
+                <label><input type="radio" name="subject" value="Biology and medical sciences"> Biology and medical sciences</label>
             </div>
 
             <div class="question">4. What work environment do you prefer?</div>
             <div class="options">
-                <input type="radio" name="environment" value="Corporate office" required> Corporate office<br>
-                <input type="radio" name="environment" value="Remote work"> Remote work<br>
-                <input type="radio" name="environment" value="Outdoor work"> Outdoor work<br>
-                <input type="radio" name="environment" value="Lab or research center"> Lab or research center<br>
+                <label><input type="radio" name="environment" value="Corporate office" required> Corporate office</label>
+                <label><input type="radio" name="environment" value="Remote work"> Remote work</label>
+                <label><input type="radio" name="environment" value="Outdoor work"> Outdoor work</label>
+                <label><input type="radio" name="environment" value="Lab or research center"> Lab or research center</label>
             </div>
 
             <div class="question">5. What motivates you the most in a career?</div>
             <div class="options">
-                <input type="radio" name="motivation" value="High salary and benefits" required> High salary and benefits<br>
-                <input type="radio" name="motivation" value="Job satisfaction and passion"> Job satisfaction and passion<br>
-                <input type="radio" name="motivation" value="Helping others and making an impact"> Helping others and making an impact<br>
-                <input type="radio" name="motivation" value="Opportunities for creativity and innovation"> Opportunities for creativity and innovation<br>
+                <label><input type="radio" name="motivation" value="High salary and benefits" required> High salary and benefits</label>
+                <label><input type="radio" name="motivation" value="Job satisfaction and passion"> Job satisfaction and passion</label>
+                <label><input type="radio" name="motivation" value="Helping others and making an impact"> Helping others and making an impact</label>
+                <label><input type="radio" name="motivation" value="Opportunities for creativity and innovation"> Opportunities for creativity and innovation</label>
             </div>
 
             <button type="submit">Submit</button>
@@ -119,10 +124,10 @@
         <button class="logout-btn" id="logout">Logout</button>
     </div>
 
-    <!-- Inside <script> tag at the bottom -->
 <script>
-    // Ensure the user is logged in
-    if (!localStorage.getItem("token")) {
+    // Redirect if not logged in
+    const token = localStorage.getItem("token");
+    if (!token) {
         alert("You must be logged in to access this page.");
         window.location.href = "login.html";
     }
@@ -141,7 +146,7 @@
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    "Authorization": "Bearer " + token
                 },
                 body: JSON.stringify(userResponses)
             });
@@ -149,25 +154,23 @@
             const result = await response.json();
 
             if (result.recommendation) {
-                // ✅ Save recommendation to localStorage
                 localStorage.setItem("careerResult", result.recommendation);
+                alert("✅ Recommendation generated! Redirecting...");
                 window.location.href = "carrier.html";
             } else {
-                alert("⚠️ Error: No recommendation found.");
+                alert("⚠️ No recommendation found. Try again.");
             }
         } catch (err) {
             console.error("❌ Error:", err);
-            alert("Something went wrong. Please try again.");
+            alert("Something went wrong. Please try again later.");
         }
     });
 
-    // Logout button
     document.getElementById("logout").addEventListener("click", function() {
         localStorage.removeItem("token");
         alert("Logged out successfully!");
         window.location.href = "login.html";
     });
 </script>
-
 </body>
 </html>
